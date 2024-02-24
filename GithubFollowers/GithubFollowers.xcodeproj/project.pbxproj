@@ -10,6 +10,9 @@
 		06258AC32B89EBDE00448730 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06258AC22B89EBDE00448730 /* UIImage+.swift */; };
 		06258AC52B89EF8800448730 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06258AC42B89EF8800448730 /* Bindable.swift */; };
 		06258AC72B89F7F100448730 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06258AC62B89F7F100448730 /* UIView+.swift */; };
+		06258ACB2B8A1AF200448730 /* InternetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06258ACA2B8A1AF200448730 /* InternetManager.swift */; };
+		06258ACF2B8A1BD500448730 /* NoInternetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06258ACD2B8A1BD500448730 /* NoInternetViewController.swift */; };
+		06258AD02B8A1BD500448730 /* NoInternetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06258ACE2B8A1BD500448730 /* NoInternetViewController.xib */; };
 		06F8AF5D2B879BF1006522AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F8AF5C2B879BF1006522AC /* AppDelegate.swift */; };
 		06F8AF662B879BF4006522AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06F8AF652B879BF4006522AC /* Assets.xcassets */; };
 		06F8AF692B879BF4006522AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06F8AF672B879BF4006522AC /* LaunchScreen.storyboard */; };
@@ -33,6 +36,9 @@
 		06258AC22B89EBDE00448730 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		06258AC42B89EF8800448730 /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
 		06258AC62B89F7F100448730 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		06258ACA2B8A1AF200448730 /* InternetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetManager.swift; sourceTree = "<group>"; };
+		06258ACD2B8A1BD500448730 /* NoInternetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetViewController.swift; sourceTree = "<group>"; };
+		06258ACE2B8A1BD500448730 /* NoInternetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoInternetViewController.xib; sourceTree = "<group>"; };
 		06F8AF592B879BF1006522AC /* GithubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06F8AF5C2B879BF1006522AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06F8AF652B879BF4006522AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -65,6 +71,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06258ACC2B8A1BA400448730 /* NoInernet */ = {
+			isa = PBXGroup;
+			children = (
+				06258ACD2B8A1BD500448730 /* NoInternetViewController.swift */,
+				06258ACE2B8A1BD500448730 /* NoInternetViewController.xib */,
+			);
+			path = NoInernet;
+			sourceTree = "<group>";
+		};
 		06F8AF502B879BF1006522AC = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				06F8AFA72B88EF5D006522AC /* APICaller.swift */,
+				06258ACA2B8A1AF200448730 /* InternetManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -161,6 +177,7 @@
 		06F8AF7E2B87CF1E006522AC /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				06258ACC2B8A1BA400448730 /* NoInernet */,
 				06F8AF782B87CC19006522AC /* Detail */,
 				06F8AF772B87CBDF006522AC /* Home */,
 			);
@@ -289,6 +306,7 @@
 			files = (
 				06F8AF692B879BF4006522AC /* LaunchScreen.storyboard in Resources */,
 				06F8AF662B879BF4006522AC /* Assets.xcassets in Resources */,
+				06258AD02B8A1BD500448730 /* NoInternetViewController.xib in Resources */,
 				06F8AF8A2B884CC0006522AC /* HomeViewController.xib in Resources */,
 				06F8AF942B8850C1006522AC /* DetailViewController.xib in Resources */,
 				06F8AFA42B889C49006522AC /* UserTableViewCell.xib in Resources */,
@@ -306,11 +324,13 @@
 				06258AC32B89EBDE00448730 /* UIImage+.swift in Sources */,
 				06F8AFA62B88DCF7006522AC /* UILabel+.swift in Sources */,
 				06F8AF8E2B88505F006522AC /* HomeViewModel.swift in Sources */,
+				06258ACB2B8A1AF200448730 /* InternetManager.swift in Sources */,
 				06F8AF5D2B879BF1006522AC /* AppDelegate.swift in Sources */,
 				06F8AFA82B88EF5D006522AC /* APICaller.swift in Sources */,
 				06F8AF8C2B884E3D006522AC /* Constant.swift in Sources */,
 				06F8AF892B884CC0006522AC /* HomeViewController.swift in Sources */,
 				06258AC52B89EF8800448730 /* Bindable.swift in Sources */,
+				06258ACF2B8A1BD500448730 /* NoInternetViewController.swift in Sources */,
 				06258AC72B89F7F100448730 /* UIView+.swift in Sources */,
 				06F8AFA32B889C49006522AC /* UserTableViewCell.swift in Sources */,
 				06F8AF932B8850C1006522AC /* DetailViewController.swift in Sources */,
