@@ -31,10 +31,11 @@ final class UserTableViewCell: UITableViewCell {
         let backgroundQueue = DispatchQueue.global(qos: .background)
         
         backgroundQueue.async {
-            if let imageUrl = URL(string: user?.avatarURL ?? ""),
-               let imageData = try? Data(contentsOf: imageUrl),
-               let image = UIImage(data: imageData) {
-                
+            guard let url = URL(string: user?.avatarURL ?? "") else {
+                return
+            }
+            
+            ImageProvider.shared.fetchData(url: url) { image in
                 DispatchQueue.main.async { [weak self] in
                     self?.avatarImageView.image = image
                 }
@@ -46,8 +47,9 @@ final class UserTableViewCell: UITableViewCell {
     }
     
     private func setClickableLink() {
-        linkLabel.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(openLink))
+        
+        linkLabel.isUserInteractionEnabled = true
         linkLabel.addGestureRecognizer(tap)
         linkLabel.underline()
         linkLabel.textColor = .systemOrange

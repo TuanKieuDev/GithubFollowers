@@ -18,8 +18,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         let homeVC = HomeViewController()
         homeVC.bindViewModel(to: HomeViewModel())
         let navigationController = UINavigationController(rootViewController: homeVC)
-        //        window.rootViewController = navigationController
-        
         let hasInternet = InternetManager.shared.isInternetAvailable()
         window.rootViewController = hasInternet ? navigationController : NoInternetViewController()
         
@@ -29,7 +27,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func restartApp() {
+    func reconnectApp() {
         let homeVC = HomeViewController()
         homeVC.bindViewModel(to: HomeViewModel())
         window?.rootViewController = UINavigationController(rootViewController: homeVC)

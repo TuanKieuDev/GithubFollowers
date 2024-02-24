@@ -16,9 +16,9 @@ final class APICaller {
     
     static let shared = APICaller()
     
-    func getListUsers(completion: @escaping (Result<[User], Error>) -> Void) {
+    func getUsers(page: Int, completion: @escaping (Result<[User], Error>) -> Void) {
         
-        guard let url = URL(string: Endpoint.testURL) else {
+        guard let url = URL(string: "\(Endpoint.testURL)&page=\(page)") else {
             completion(.failure(APIError.urlError))
             return
         }

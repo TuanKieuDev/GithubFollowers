@@ -11,6 +11,8 @@ struct Constant {
     
     static let userCellHeight = CGFloat(100)
     
+    static let viewRadius = CGFloat(20)
+    
     struct Title {
         static let home = "Home"
         static let detail = "Detail"

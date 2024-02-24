@@ -11,29 +11,29 @@ final class HomeViewModel {
     
     var isLoading: Observable<Bool> = Observable(value: false)
     var cellDataSource: Observable<[User]> = Observable(value: nil)
-    var users: [User]?
+    var users: [User] = []
     
-    func getUsers() {
+    func getUsers(page: Int) {
         
         if isLoading.value ?? true {
             return
         }
         isLoading.value = true
         
-        APICaller.shared.getListUsers { [weak self] result in
-            self?.isLoading.value = false
+        APICaller.shared.getUsers(page: page) { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            
+            self.isLoading.value = false
             
             switch result {
             case .success(let usersData):
-                self?.users = usersData
-                self?.mapCellData()
+                self.users.append(contentsOf: usersData)
+                self.cellDataSource.value = self.users
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
-    }
-    
-    func mapCellData() {
-        self.cellDataSource.value = self.users ?? []
     }
 }

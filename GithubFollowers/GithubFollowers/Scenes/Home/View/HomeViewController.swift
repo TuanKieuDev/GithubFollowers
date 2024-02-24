@@ -12,6 +12,10 @@ final class HomeViewController: UIViewController, Bindable {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
+    var startPage = 1
+    
+    private var refreshControl = RefreshManager.shared.setupRefreshControl(#selector(refresh(_:)))
+    
     var viewModel: HomeViewModel!
     
     var usersData: [User]?
@@ -20,7 +24,7 @@ final class HomeViewController: UIViewController, Bindable {
         super.viewDidLoad()
 
         configView()
-        viewModel.getUsers()
+        viewModel.getUsers(page: startPage)
     }
     
     private func configView() {
@@ -29,6 +33,7 @@ final class HomeViewController: UIViewController, Bindable {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UserTableViewCell.nib(), forCellReuseIdentifier: Constant.NibName.userCell)
+        tableView.refreshControl = refreshControl
     }
     
     func bindViewModel() {
@@ -56,9 +61,15 @@ final class HomeViewController: UIViewController, Bindable {
         }
     }
     
+    @objc
+    private func refresh(_ sender: AnyObject) {
+        viewModel.getUsers(page: 1)
+        refreshControl.endRefreshing()
+    }
+    
     private func reloadTableView() {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
         }
     }
     
@@ -66,8 +77,8 @@ final class HomeViewController: UIViewController, Bindable {
         let detailViewModel = DetailViewModel(url: url)
         let detailVC = DetailViewController(viewModel: detailViewModel)
         detailVC.bindViewModel(to: detailViewModel)
-        DispatchQueue.main.async {
-            self.navigationController?.pushViewController(detailVC, animated: true)
+        DispatchQueue.main.async { [weak self] in
+            self?.navigationController?.pushViewController(detailVC, animated: true)
         }
     }
 }
@@ -75,6 +86,14 @@ final class HomeViewController: UIViewController, Bindable {
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return Constant.userCellHeight
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        if position > (tableView.contentSize.height - 100 - scrollView.frame.size.height) {
+            self.startPage += 1
+            viewModel.getUsers(page: startPage)
+        }
     }
 }
 

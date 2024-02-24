@@ -13,6 +13,8 @@
 		06258ACB2B8A1AF200448730 /* InternetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06258ACA2B8A1AF200448730 /* InternetManager.swift */; };
 		06258ACF2B8A1BD500448730 /* NoInternetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06258ACD2B8A1BD500448730 /* NoInternetViewController.swift */; };
 		06258AD02B8A1BD500448730 /* NoInternetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06258ACE2B8A1BD500448730 /* NoInternetViewController.xib */; };
+		06258AD22B8A217F00448730 /* RefreshManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06258AD12B8A217F00448730 /* RefreshManager.swift */; };
+		06258AD42B8A297700448730 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06258AD32B8A297700448730 /* ImageProvider.swift */; };
 		06F8AF5D2B879BF1006522AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F8AF5C2B879BF1006522AC /* AppDelegate.swift */; };
 		06F8AF662B879BF4006522AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06F8AF652B879BF4006522AC /* Assets.xcassets */; };
 		06F8AF692B879BF4006522AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06F8AF672B879BF4006522AC /* LaunchScreen.storyboard */; };
@@ -39,6 +41,8 @@
 		06258ACA2B8A1AF200448730 /* InternetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetManager.swift; sourceTree = "<group>"; };
 		06258ACD2B8A1BD500448730 /* NoInternetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetViewController.swift; sourceTree = "<group>"; };
 		06258ACE2B8A1BD500448730 /* NoInternetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoInternetViewController.xib; sourceTree = "<group>"; };
+		06258AD12B8A217F00448730 /* RefreshManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshManager.swift; sourceTree = "<group>"; };
+		06258AD32B8A297700448730 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		06F8AF592B879BF1006522AC /* GithubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06F8AF5C2B879BF1006522AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06F8AF652B879BF4006522AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -188,7 +192,9 @@
 			isa = PBXGroup;
 			children = (
 				06F8AF802B87D0DE006522AC /* Extensions */,
+				06258AD12B8A217F00448730 /* RefreshManager.swift */,
 				06F8AF8B2B884E3D006522AC /* Constant.swift */,
+				06258AD32B8A297700448730 /* ImageProvider.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -329,6 +335,7 @@
 				06F8AFA82B88EF5D006522AC /* APICaller.swift in Sources */,
 				06F8AF8C2B884E3D006522AC /* Constant.swift in Sources */,
 				06F8AF892B884CC0006522AC /* HomeViewController.swift in Sources */,
+				06258AD22B8A217F00448730 /* RefreshManager.swift in Sources */,
 				06258AC52B89EF8800448730 /* Bindable.swift in Sources */,
 				06258ACF2B8A1BD500448730 /* NoInternetViewController.swift in Sources */,
 				06258AC72B89F7F100448730 /* UIView+.swift in Sources */,
@@ -336,6 +343,7 @@
 				06F8AF932B8850C1006522AC /* DetailViewController.swift in Sources */,
 				06F8AF962B8850CD006522AC /* DetailViewModel.swift in Sources */,
 				06F8AFAD2B88F1F6006522AC /* Endpoint.swift in Sources */,
+				06258AD42B8A297700448730 /* ImageProvider.swift in Sources */,
 				06F8AFAB2B88F088006522AC /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

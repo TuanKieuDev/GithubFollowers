@@ -43,7 +43,7 @@ final class DetailViewController: UIViewController, Bindable {
         self.title = Constant.Title.detail
         
         userImageView.applyCircleImage()
-        statisticView.layer.cornerRadius = 20
+        statisticView.layer.cornerRadius = Constant.viewRadius
         statisticView.applyShadow()
     }
     
@@ -51,11 +51,12 @@ final class DetailViewController: UIViewController, Bindable {
         
         let backgroundQueue = DispatchQueue.global(qos: .background)
         
-        backgroundQueue.async { [weak self] in
-            if let imageUrl = URL(string: self?.userData?.avatarURL ?? ""),
-               let imageData = try? Data(contentsOf: imageUrl),
-               let image = UIImage(data: imageData) {
-                
+        backgroundQueue.async {
+            guard let url = URL(string: self.userData?.avatarURL ?? "") else {
+                return
+            }
+            
+            ImageProvider.shared.fetchData(url: url) { image in
                 DispatchQueue.main.async { [weak self] in
                     self?.userImageView.image = image
                 }
